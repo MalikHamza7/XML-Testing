@@ -15,30 +15,29 @@ Automatically search the Wayback Machine for live XML files related to a given d
 Display results dynamically as files are discovered.
 
 # Installation
-# Clone the repository
-git clone https://github.com/yourusername/xml-pentest-tool.git
+Clone the repository
+```bash git clone https://github.com/yourusername/xml-pentest-tool.git```
 
-# Navigate to the tool directory
-cd xml-pentest-tool
+Navigate to the tool directory
+```bash cd xml-pentest-tool```
 
-# Install Python dependencies
-pip install -r requirements.txt
+Install Python dependencies
+```bash pip install -r requirements.txt```
 
 # Install Waybackurls (Required for Wayback Integration):
-# Ensure Go is installed. If not, install it using:
-sudo apt install golang
+ Ensure Go is installed. If not, install it using:
+```bash sudo apt install golang```
 
-# Install Waybackurls
-go install github.com/tomnomnom/waybackurls@latest
+Install Waybackurls
+```bash go install github.com/tomnomnom/waybackurls@latest```
 
-# Add Waybackurls to your PATH
-export PATH=$PATH:$(go env GOPATH)/bin
+Add Waybackurls to your PATH
+```bashexport PATH=$PATH:$(go env GOPATH)/bin```
 
-# Run the tool:
-python xml_pentest_tool.py
+Run the tool:
+```bash python3 xml_pentest_tool.py```
 
 # Example 
-Welcome to XML Penetration Testing Tool! 🚀
 
 Choose input type:
 1. Load XML from a file
