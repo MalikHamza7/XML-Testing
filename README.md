@@ -15,14 +15,23 @@ Automatically search the Wayback Machine for live XML files related to a given d
 Display results dynamically as files are discovered.
 
 # Installation
-Clone the repository:
+# Clone the repository
 git clone https://github.com/yourusername/xml-pentest-tool.git
+
+# Navigate to the tool directory
 cd xml-pentest-tool
-Install dependencies: Use the included requirements.txt file to install all necessary libraries.
+
+# Install Python dependencies
 pip install -r requirements.txt
+
 # Install Waybackurls (Required for Wayback Integration):
+# Ensure Go is installed. If not, install it using:
 sudo apt install golang
+
+# Install Waybackurls
 go install github.com/tomnomnom/waybackurls@latest
+
+# Add Waybackurls to your PATH
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # Run the tool:
