@@ -1,28 +1,31 @@
 # XML-Testing Automation
-An interactive and flexible tool for penetration testing and bug bounty tasks focused on XML vulnerabilities, including XXE, XML Injection, XSS, and File Disclosure. The tool is user-friendly, with options to use default payloads or custom payloads provided via a file. Test files or URLs with real-time results and clear proofs of concept (PoC) for vulnerabilities.
+An interactive and flexible tool for automating penetration testing and bug bounty tasks focused on XML vulnerabilities, including XXE, XML Injection, XSS, and File Disclosure. Designed for ease of use with real-time results and clear Proof of Concept (PoC) for vulnerabilities.
 
 # Features
-XML Testing: Test for vulnerabilities such as:
-XML External Entity (XXE) injection.
-XML injection and malformed structures.
-XSS and script injection.
-Path traversal and file disclosure.
-Payload Selection:
-Use default payloads for quick testing.
-Provide a custom payload file for advanced use cases.
-Interactive Menu:
-Test XML files or target URLs.
-Easily navigate back to the main menu for repeated testing.
-Real-time Results:
-Displays well-formedness, vulnerability status, and PoC (if applicable).
-Color-coded outputs for easy interpretation using colorama.
+# XML Vulnerability Testing:
+XXE (XML External Entity) Injection
+XML Injection and malformed structures
+XSS and script injection
+Path traversal and file disclosure
+# Payload Options:
+Use built-in default payloads for quick testing.
+Support for custom payloads loaded from a file.
+Wayback Integration (Newly Added Feature):
+Automatically search the Wayback Machine for live XML files related to a given domain.
+Display results dynamically as files are discovered.
+
 # Installation
 Clone the repository:
 git clone https://github.com/yourusername/xml-pentest-tool.git
 cd xml-pentest-tool
 Install dependencies: Use the included requirements.txt file to install all necessary libraries.
 pip install -r requirements.txt
-Run the tool:
+# Install Waybackurls (Required for Wayback Integration):
+sudo apt install golang
+go install github.com/tomnomnom/waybackurls@latest
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# Run the tool:
 python xml_pentest_tool.py
 
 # Example 
@@ -31,35 +34,18 @@ Welcome to XML Penetration Testing Tool! 🚀
 Choose input type:
 1. Load XML from a file
 2. Test a URL endpoint
-3. Exit the tool
-Enter your choice (1, 2, or 3): 1
-Enter the full path to the XML file: /path/to/test.xml
+3. Search for XML files using Wayback Machine
+4. Exit the tool
+Enter your choice (1, 2, 3, or 4): 3
 
-Choose payload type:
-1. Use default payloads
-2. Use custom payloads from a file
-Enter your choice (1 or 2): 1
-
-🔍 Starting Penetration Testing for Target: File - /path/to/test.xml
-
-[Payload 1] Testing with payload:
-<root><data>&xxe;</data></root>
-
-  ✅ Well-formedness Check: Passed
-  ❌ XXE Test Result: Vulnerable!
---------------------------------------------------
-
-[Payload 2] Testing with payload:
-<!DOCTYPE root [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]><root>&xxe;</root>
-
-  Well-formedness Check: Passed
-  ❌ XXE Test Result: Vulnerable!
-  Server Response: 200
-  Response Body: root:x:0:0:root:/root:/bin/bash...
---------------------------------------------------
-
-✅ Testing Completed!
+🔍 Searching Wayback Machine for XML files on domain: example.com
+✅ Found 5 XML files. Displaying live:
+[1] http://example.com/sitemap.xml
+[2] http://example.com/filelist.xml
+[3] http://subdomain.example.com/wp-sitemap.xml
+...
 
 
-
+![image](https://github.com/user-attachments/assets/47a7a1c8-eb57-4ea7-b134-7344d196c9ea)
+![image](https://github.com/user-attachments/assets/1bfbdc93-6b40-4aea-9287-e5dd553cdd06)
 ![image](https://github.com/user-attachments/assets/97d39180-25e9-4c9e-8394-80df6149b8dc)
